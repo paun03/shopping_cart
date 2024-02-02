@@ -62,7 +62,7 @@ let fillOutSectionItems = (arrayOfItems) => {
         let h6 = document.createElement("h6");
         h6.innerHTML = arrayOfItems[i].price;
         let button = document.createElement("button");
-        button.setAttribute("id", `${i + 1}`); 
+        button.setAttribute("id", `${i}`); 
         button.innerHTML = "Add To Cart";
         div.append(img, h3, h6, button);
         sectionItems.append(div);
@@ -89,12 +89,38 @@ let fillOutAsideElements = () => {
 fillOutSectionItems(allItems);
 fillOutAsideElements();
 
+// SELECTORS
+
+let divButtonShowcase = document.querySelector(".divButtonShowcase");
+let btnOrder = document.querySelector("#btnOrder");
+let sumOfOrder = 0;
+
 // EVENT LISTENERS
 
 sectionItems.addEventListener("click", (event) => {
     if (event.target.tagName === "BUTTON") {
         itemCounter++;
         spanItemCounter.innerHTML = itemCounter;
+        let div = document.createElement("div");
+        div.classList.add("divProductShowcase");
+        let img = document.createElement("img");
+        img.classList.add("imgImageShowcase");
+        let spanOne = document.createElement("span");
+        spanOne.classList.add("spanPriceShowcase");
+        let spanTwo = document.createElement("span");
+        spanTwo.classList.add("spanAmountShowcase");
+        img.src = allItems[event.target.id].image;
+        spanOne.innerHTML = allItems[event.target.id].price;
+        spanTwo.innerHTML = `1`;
+        console.log(`allItems[${event.target.id}]`);
+        div.append(img, spanOne, spanTwo);
+        sumOfOrder += Number(allItems[event.target.id].price); 
+        btnOrder.innerHTML = sumOfOrder;
+        if (divButtonShowcase) {
+            asideCheckout.insertBefore(div, divButtonShowcase);
+        } else {
+            asideCheckout.append(div); 
+        }
     }
 });
 
