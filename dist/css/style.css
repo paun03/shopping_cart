@@ -25,7 +25,7 @@ body {
 #sectionInfo #divShoppingCart #imgShoppingCart {
   cursor: pointer;
 }
-#sectionInfo #divShoppingCart #itemCounter {
+#sectionInfo #divShoppingCart #spanItemCounter {
   position: absolute;
   right: 4px;
   z-index: 1;
@@ -96,6 +96,7 @@ body {
   border-left: 1px solid #7e2eeb;
   display: flex;
   flex-direction: column;
+  display: none;
 }
 #asideCheckout h1 {
   margin-left: 4px;
@@ -106,10 +107,10 @@ body {
   align-items: center;
   margin: 4px 12px;
 }
-#asideCheckout .divProductShowcase #imgImageShowcase {
+#asideCheckout .divProductShowcase .imgImageShowcase {
   width: 36px;
 }
-#asideCheckout .divProductShowcase #spanAmountShowcase {
+#asideCheckout .divProductShowcase .spanAmountShowcase {
   color: white;
   background-color: #7e2eeb;
   border-radius: 100%;

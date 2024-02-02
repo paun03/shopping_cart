@@ -29,7 +29,7 @@ body {
             cursor: pointer;
         }
 
-        #itemCounter {
+        #spanItemCounter {
             position: absolute;
             right: 4px;
             z-index: 1;
@@ -110,6 +110,7 @@ body {
     border-left: 1px solid $primary-color;
     display: flex;
     flex-direction: column;
+    display: none;
 
     h1 {
         margin-left: 4px;
@@ -121,11 +122,11 @@ body {
         align-items: center;
         margin: 4px 12px;
 
-        #imgImageShowcase {
+        .imgImageShowcase {
             width: 36px;
         }
 
-        #spanAmountShowcase {
+        .spanAmountShowcase {
             color: white;
             background-color: $primary-color;
             border-radius: 100%;

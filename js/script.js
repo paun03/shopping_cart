@@ -40,6 +40,15 @@ let allItems = [item1, item2, item3, item4, item5, item6];
 
 let sectionItems = document.querySelector("#sectionItems");
 
+let imgShoppingCart = document.querySelector("#imgShoppingCart");
+let spanItemCounter = document.querySelector("#spanItemCounter");
+
+let asideCheckout = document.querySelector("#asideCheckout");
+
+// VARIABLES
+
+let itemCounter = 0;
+
 // FUNCTIONS
 
 let fillOutSectionItems = (arrayOfItems) => {
@@ -60,6 +69,41 @@ let fillOutSectionItems = (arrayOfItems) => {
     }
 };
 
+let fillOutAsideElements = () => {
+    let h1 = document.createElement("h1");
+    h1.innerHTML = "Checkout";
+    let div = document.createElement("div");
+    div.classList.add("divButtonShowcase");
+    let buttonOne = document.createElement("button");
+    let buttonTwo = document.createElement("button");
+    buttonOne.setAttribute("id", "btnOrder");
+    buttonTwo.setAttribute("id", "btnClose");
+    buttonOne.innerHTML = "Order";
+    buttonTwo.innerHTML = "Cancel";
+    div.append(buttonOne, buttonTwo);
+    asideCheckout.append(h1, div);
+};
+
 // FUNCTION ACTIVATOR
 
 fillOutSectionItems(allItems);
+fillOutAsideElements();
+
+// EVENT LISTENERS
+
+sectionItems.addEventListener("click", (event) => {
+    if (event.target.tagName === "BUTTON") {
+        itemCounter++;
+        spanItemCounter.innerHTML = itemCounter;
+    }
+});
+
+imgShoppingCart.addEventListener("click", () => {
+    asideCheckout.style.display = "flex";
+});
+
+asideCheckout.addEventListener("click", (event) => {
+    if (event.target.id === "btnClose") {
+        asideCheckout.style.display = "none";
+    };
+});
