@@ -1,0 +1,165 @@
+$primary-color: #7e2eeb;
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: content-box;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+#sectionInfo {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 40px;
+    padding: 16px;
+
+    h1 {
+        color: $primary-color;
+    }
+
+    #divShoppingCart {
+        position: relative;
+
+        #imgShoppingCart {
+            cursor: pointer;
+        }
+
+        #itemCounter {
+            position: absolute;
+            right: 4px;
+            z-index: 1;
+            background-color: red;
+            padding: 2px 6px;
+            border-radius: 100%;
+            color: white;
+        }
+    }
+}
+
+#sectionItems {
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(3, 1fr); 
+    grid-gap: 20px; 
+    margin: 0 40px;
+
+    .divItem {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        width: 280px;
+        height: 360px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+        transition: ease-in 0.3s;
+        
+        img {
+            width: 200px;
+            height: 200px;
+        }
+
+        h3 {
+            font-size: 20px;
+        }
+
+        h6 {
+            font-size: 12px;
+        }
+
+        button {
+            width: 200px;
+            padding: 8px;
+            font-size: 16px;
+            background-color: $primary-color;
+            border: $primary-color 1px solid;
+            color: white;
+            cursor: pointer;
+            transition: ease-in 0.3s;
+        }
+    }
+
+    .divItem:hover {
+        background-color: $primary-color;
+
+        button {
+            background-color: white;
+            border: $primary-color 1px solid;
+            color: $primary-color;
+        }
+
+        h3, h6 {
+            color: white;
+        }
+    }
+}
+
+#asideCheckout {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 100;
+    width: 400px;
+    height: 100vh;
+    background-color: white;
+    border-left: 1px solid $primary-color;
+    display: flex;
+    flex-direction: column;
+
+    h1 {
+        margin-left: 4px;
+    }
+
+    .divProductShowcase {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 4px 12px;
+
+        #imgImageShowcase {
+            width: 36px;
+        }
+
+        #spanAmountShowcase {
+            color: white;
+            background-color: $primary-color;
+            border-radius: 100%;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    .divButtonShowcase {
+        align-self: flex-end;
+        margin-top: auto;
+        width: 100%;
+        display: flex;
+
+        button {
+            width: 50%;
+            padding: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        #btnOrder {
+            background-color: black;
+            color: white;
+            border: none;
+        }
+
+        #btnClose {
+            background-color: $primary-color;
+            color: white;
+            border: none;
+        }
+    }
+}
